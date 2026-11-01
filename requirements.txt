@@ -1,0 +1,11 @@
+# Live pipeline (host/). Lower bounds are the ones in the original
+# collier/ and collier_live/ requirement files; nothing is pinned.
+bleak>=0.21
+python-osc>=1.8
+numpy>=1.24
+torch>=2.0        # collier_live loads the last ML model at startup (see README)
+PyQt6>=6.5
+qasync>=0.27
+
+# The ML trainer GUI in experiments/ml-attempt/ also needs:
+#   pyqtgraph

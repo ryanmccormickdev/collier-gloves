@@ -1,0 +1,265 @@
+Manifest: gesture_tcn_20260601_232854.manifest.json
+Classes: ['none', 'spawn_note', 'scale_up', 'scale_down', 'semitone_up', 'semitone_down', 'collective_scale_up', 'collective_scale_down', 'collective_semitone_up', 'collective_semitone_down']
+Window: 64 frames (~1.07s @60Hz)
+
+
+========== Side L ==========
+Total ticks (valid labels): 51713
+Per-window confusion (raw argmax, true rows / pred cols):
+                           none  spawn_  scale_  scale_  semito  semito  collec  collec  collec  collec
+none                     [32m 37994[0m     196       2     122     111      92      60      49      83     127   sup=38836 R=0.98
+spawn_note                   17  [32m  2708[0m       0       0       0       0       0       0       0       0   sup=2725 R=0.99
+scale_up                      4       0  [32m  1570[0m       0      31       0       0       0       0       0   sup=1605 R=0.98
+scale_down                   42       0      77  [32m  1548[0m       2       1       0       0       0       5   sup=1675 R=0.92
+semitone_up                   3       0       9       0  [32m  1307[0m       0       0       0       0       0   sup=1319 R=0.99
+semitone_down                30       0       0       0       0  [32m  1294[0m       0       0       0      11   sup=1335 R=0.97
+collective_scale_up          45       0       5       0       0       0  [32m   856[0m       0       0       0   sup=906 R=0.94
+collective_scale_down         0       0       0       0       0       0       0  [32m   860[0m       0       0   sup=860 R=1.00
+collective_semitone_up        2       0       0       0       0       0       0       0  [32m  1308[0m       0   sup=1310 R=1.00
+collective_semitone_down      4       0       0       0       0       0       0      27       0  [32m  1111[0m   sup=1142 R=0.97
+
+Per-true-class behavior:
+
+  collective_scale_down  (30 clips)
+    in-span argmax acc = 0.82
+    in-span preds:  collective_scale_down:403, none:61, collective_semitone_down:24, semitone_up:2
+    pre-span preds: none:944
+    post-span:      collective_scale_down:1291, none:280, collective_scale_up:46
+    postproc fires per clip: 1x:19 2x:11
+      DOUBLE: collective_scale_down_both_collective_20260601_174853.npz -> ['collective_scale_down', 'collective_semitone_down']
+      DOUBLE: collective_scale_down_both_collective_20260601_174911.npz -> ['collective_scale_down', 'collective_scale_up']
+      DOUBLE: collective_scale_down_both_collective_20260601_174942.npz -> ['collective_scale_down', 'collective_scale_up']
+      DOUBLE: collective_scale_down_both_collective_20260601_175000.npz -> ['collective_scale_down', 'collective_scale_up']
+      DOUBLE: collective_scale_down_both_collective_20260601_175005.npz -> ['collective_scale_down', 'collective_scale_up']
+
+  collective_scale_up  (30 clips)
+    in-span argmax acc = 0.73
+    in-span preds:  collective_scale_up:338, none:93, collective_semitone_down:25, scale_up:5
+    pre-span preds: none:903
+    post-span:      collective_scale_up:1159, none:431, collective_semitone_up:28
+    postproc fires per clip: 0x:2 1x:18 2x:10
+      DOUBLE: collective_scale_up_both_collective_20260601_174409.npz -> ['collective_scale_up', 'collective_semitone_up']
+      DOUBLE: collective_scale_up_both_collective_20260601_174415.npz -> ['collective_scale_up', 'scale_down']
+      DOUBLE: collective_scale_up_both_collective_20260601_174432.npz -> ['collective_scale_up', 'semitone_down']
+      DOUBLE: collective_scale_up_both_collective_20260601_174440.npz -> ['collective_scale_up', 'semitone_down']
+      DOUBLE: collective_scale_up_both_collective_20260601_174445.npz -> ['collective_scale_up', 'scale_down']
+
+  collective_semitone_down  (30 clips)
+    in-span argmax acc = 0.97
+    in-span preds:  collective_semitone_down:518, none:12, collective_scale_down:4
+    pre-span preds: none:685
+    post-span:      collective_semitone_down:1097, none:471, collective_scale_down:23
+    postproc fires per clip: 1x:30
+
+  collective_semitone_up  (30 clips)
+    in-span argmax acc = 0.91
+    in-span preds:  collective_semitone_up:796, none:72, semitone_down:8, collective_semitone_down:3
+    pre-span preds: none:943
+    post-span:      collective_semitone_up:1022, none:195, scale_down:14
+    postproc fires per clip: 1x:26 2x:4
+      DOUBLE: collective_semitone_up_both_collective_20260601_175536.npz -> ['semitone_down', 'collective_semitone_up']
+      DOUBLE: collective_semitone_up_both_collective_20260601_175548.npz -> ['collective_semitone_up', 'scale_down']
+      DOUBLE: collective_semitone_up_both_collective_20260601_175619.npz -> ['collective_semitone_up', 'semitone_down']
+      DOUBLE: collective_semitone_up_both_collective_20260601_175741.npz -> ['collective_semitone_down', 'collective_semitone_up']
+
+  collective_volume_down  (32 clips)
+    in-span argmax acc = 0.00
+    in-span preds:  none:3434, semitone_up:95, semitone_down:66, collective_semitone_down:66
+    postproc fires per clip: 0x:21 1x:10 2x:1
+      DOUBLE: collective_volume_down_both_collective_20260601_180858.npz -> ['collective_scale_down', 'collective_scale_up']
+
+  collective_volume_up  (30 clips)
+    in-span argmax acc = 0.00
+    in-span preds:  none:1853, collective_semitone_up:83, scale_down:64, collective_semitone_down:57
+    postproc fires per clip: 0x:23 1x:6 3x:1
+      DOUBLE: collective_volume_up_both_collective_20260601_180639.npz -> ['collective_semitone_down', 'collective_scale_up', 'collective_semitone_up']
+
+  none  (128 clips)
+    in-span preds:  none:30908, spawn_note:187, scale_down:58, semitone_down:26
+    postproc fires per clip: 0x:121 1x:5 3x:1 4x:1
+
+  scale_down  (40 clips)
+    in-span argmax acc = 0.72
+    in-span preds:  scale_down:854, none:264, scale_up:32, collective_semitone_down:20
+    pre-span preds: none:1372
+    post-span:      scale_down:1595, none:723, scale_up:161
+    postproc fires per clip: 1x:33 2x:7
+      DOUBLE: scale_down_both_sync_20260601_171519.npz -> ['scale_down', 'scale_up']
+      DOUBLE: scale_down_both_sync_20260601_171638.npz -> ['scale_down', 'scale_up']
+      DOUBLE: scale_down_both_sync_20260601_171646.npz -> ['collective_semitone_down', 'scale_down']
+      DOUBLE: scale_down_both_sync_20260601_171707.npz -> ['scale_down', 'scale_up']
+      DOUBLE: scale_down_both_sync_20260601_171715.npz -> ['semitone_up', 'scale_down']
+
+  scale_up  (40 clips)
+    in-span argmax acc = 0.72
+    in-span preds:  scale_up:1035, none:390, semitone_up:9, scale_down:1
+    pre-span preds: none:1785
+    post-span:      scale_up:1512, none:1475, semitone_up:32
+    postproc fires per clip: 0x:2 1x:32 2x:5 5x:1
+      DOUBLE: scale_up_both_sync_20260601_171041.npz -> ['scale_up', 'scale_down']
+      DOUBLE: scale_up_both_sync_20260601_171219.npz -> ['scale_up', 'semitone_up', 'scale_up', 'semitone_up', 'semitone_down']
+      DOUBLE: scale_up_both_sync_20260601_171228.npz -> ['scale_up', 'semitone_down']
+      DOUBLE: scale_up_left_only_20260601_170829.npz -> ['scale_up', 'spawn_note']
+      DOUBLE: scale_up_left_only_20260601_170855.npz -> ['scale_up', 'semitone_down']
+
+  semitone_down  (40 clips)
+    in-span argmax acc = 0.92
+    in-span preds:  semitone_down:518, none:18, collective_semitone_down:16, semitone_up:10
+    pre-span preds: none:1013
+    post-span:      semitone_down:1568, none:559, scale_down:72
+    postproc fires per clip: 1x:29 2x:11
+      DOUBLE: semitone_down_both_sync_20260601_173207.npz -> ['semitone_up', 'semitone_down']
+      DOUBLE: semitone_down_both_sync_20260601_173221.npz -> ['semitone_down', 'scale_down']
+      DOUBLE: semitone_down_both_sync_20260601_173227.npz -> ['semitone_down', 'scale_down']
+      DOUBLE: semitone_down_both_sync_20260601_173255.npz -> ['semitone_down', 'scale_down']
+      DOUBLE: semitone_down_both_sync_20260601_173306.npz -> ['semitone_down', 'collective_semitone_down']
+
+  semitone_up  (40 clips)
+    in-span argmax acc = 0.98
+    in-span preds:  semitone_up:672, none:13, spawn_note:1
+    pre-span preds: none:999
+    post-span:      semitone_up:1411, none:525, scale_up:84
+    postproc fires per clip: 1x:32 2x:6 3x:2
+      DOUBLE: semitone_up_both_sync_20260601_173017.npz -> ['semitone_up', 'semitone_down']
+      DOUBLE: semitone_up_both_sync_20260601_173055.npz -> ['semitone_up', 'semitone_down', 'collective_semitone_down']
+      DOUBLE: semitone_up_both_sync_20260601_173146.npz -> ['semitone_up', 'scale_down']
+      DOUBLE: semitone_up_left_only_20260601_172355.npz -> ['semitone_up', 'scale_up']
+      DOUBLE: semitone_up_left_only_20260601_172408.npz -> ['semitone_up', 'scale_up']
+
+  spawn_note  (40 clips)
+    in-span argmax acc = 0.91
+    in-span preds:  spawn_note:2028, none:205
+    pre-span preds: none:1367
+    post-span:      spawn_note:1715, none:581
+    postproc fires per clip: 1x:40
+
+========== Side R ==========
+Total ticks (valid labels): 51672
+Per-window confusion (raw argmax, true rows / pred cols):
+                           none  spawn_  scale_  scale_  semito  semito  collec  collec  collec  collec
+none                     [32m 38461[0m     282       2      19      43       6       3      53     176      56   sup=39101 R=0.98
+spawn_note                    0  [32m  2351[0m       0       0       0       0       0       0       0       0   sup=2351 R=1.00
+scale_up                      0       0  [32m  1593[0m       0       0       0      43       0       0       0   sup=1636 R=0.97
+scale_down                   37       0      31  [32m  1412[0m       0       0       0      26       0       0   sup=1506 R=0.94
+semitone_up                   0       0       0       0  [32m  1483[0m       0       0       0       0       0   sup=1483 R=1.00
+semitone_down                 0       0       0       0       0  [32m  1377[0m       0       0       0       0   sup=1377 R=1.00
+collective_scale_up           0       0      27       0       0       0  [32m   879[0m       0       0       0   sup=906 R=0.97
+collective_scale_down         1       0       0       0       0       0       0  [32m   859[0m       0       0   sup=860 R=1.00
+collective_semitone_up        6       0       0       0       0       0       0       0  [32m  1304[0m       0   sup=1310 R=1.00
+collective_semitone_down     13       0       0       0       0      29       0      49       0  [32m  1051[0m   sup=1142 R=0.92
+
+Per-true-class behavior:
+
+  collective_scale_down  (30 clips)
+    in-span argmax acc = 0.77
+    in-span preds:  collective_scale_down:379, none:103, scale_down:4, semitone_up:3
+    pre-span preds: none:944
+    post-span:      collective_scale_down:1192, none:358, collective_semitone_down:36
+    postproc fires per clip: 0x:1 1x:27 2x:2
+      DOUBLE: collective_scale_down_both_collective_20260601_174936.npz -> ['scale_down', 'collective_scale_down']
+      DOUBLE: collective_scale_down_both_collective_20260601_175037.npz -> ['semitone_up', 'collective_scale_down']
+
+  collective_scale_up  (30 clips)
+    in-span argmax acc = 0.82
+    in-span preds:  collective_scale_up:378, none:81, scale_up:2
+    pre-span preds: none:903
+    post-span:      collective_scale_up:1174, none:309, scale_up:166
+    postproc fires per clip: 0x:1 1x:24 2x:5
+      DOUBLE: collective_scale_up_both_collective_20260601_174403.npz -> ['collective_scale_up', 'collective_semitone_up']
+      DOUBLE: collective_scale_up_both_collective_20260601_174432.npz -> ['collective_scale_up', 'scale_up']
+      DOUBLE: collective_scale_up_both_collective_20260601_174445.npz -> ['collective_scale_up', 'scale_up']
+      DOUBLE: collective_scale_up_both_collective_20260601_174452.npz -> ['collective_scale_up', 'scale_up']
+      DOUBLE: collective_scale_up_both_collective_20260601_174505.npz -> ['collective_scale_up', 'scale_up']
+
+  collective_semitone_down  (30 clips)
+    in-span argmax acc = 0.91
+    in-span preds:  collective_semitone_down:485, collective_scale_down:32, semitone_down:17
+    pre-span preds: none:685
+    post-span:      collective_semitone_down:1079, none:483, collective_scale_down:17
+    postproc fires per clip: 0x:1 1x:28 2x:1
+      DOUBLE: collective_semitone_down_both_collective_20260601_180326.npz -> ['collective_scale_down', 'collective_semitone_down']
+
+  collective_semitone_up  (30 clips)
+    in-span argmax acc = 0.90
+    in-span preds:  collective_semitone_up:790, none:58, collective_scale_down:13, collective_semitone_down:9
+    pre-span preds: none:943
+    post-span:      collective_semitone_up:1011, none:120, scale_up:41
+    postproc fires per clip: 1x:22 2x:6 3x:2
+      DOUBLE: collective_semitone_up_both_collective_20260601_175506.npz -> ['collective_semitone_down', 'collective_semitone_up']
+      DOUBLE: collective_semitone_up_both_collective_20260601_175519.npz -> ['collective_semitone_up', 'spawn_note']
+      DOUBLE: collective_semitone_up_both_collective_20260601_175542.npz -> ['collective_semitone_up', 'semitone_down']
+      DOUBLE: collective_semitone_up_both_collective_20260601_175555.npz -> ['collective_semitone_up', 'semitone_down', 'spawn_note']
+      DOUBLE: collective_semitone_up_both_collective_20260601_175601.npz -> ['collective_semitone_up', 'semitone_down']
+
+  collective_volume_down  (32 clips)
+    in-span argmax acc = 0.00
+    in-span preds:  none:3718, collective_semitone_down:7
+    postproc fires per clip: 0x:31 1x:1
+
+  collective_volume_up  (30 clips)
+    in-span argmax acc = 0.00
+    in-span preds:  none:1841, collective_semitone_up:157, semitone_up:36, collective_scale_down:33
+    postproc fires per clip: 0x:21 1x:9
+
+  none  (128 clips)
+    in-span preds:  none:30777, spawn_note:241, collective_semitone_down:49, collective_semitone_up:19
+    postproc fires per clip: 0x:121 1x:7
+
+  scale_down  (40 clips)
+    in-span argmax acc = 0.72
+    in-span preds:  scale_down:771, none:202, scale_up:61, semitone_up:17
+    pre-span preds: none:1375
+    post-span:      scale_down:1607, none:1006, collective_scale_down:55
+    postproc fires per clip: 0x:2 1x:32 2x:5 3x:1
+      DOUBLE: scale_down_both_sync_20260601_171519.npz -> ['scale_up', 'scale_down']
+      DOUBLE: scale_down_both_sync_20260601_171557.npz -> ['scale_down', 'semitone_down']
+      DOUBLE: scale_down_both_sync_20260601_171638.npz -> ['semitone_up', 'scale_down', 'collective_scale_down']
+      DOUBLE: scale_down_both_sync_20260601_171707.npz -> ['scale_down', 'scale_down']
+      DOUBLE: scale_down_both_sync_20260601_171715.npz -> ['semitone_up', 'scale_down']
+
+  scale_up  (40 clips)
+    in-span argmax acc = 0.76
+    in-span preds:  scale_up:988, none:266, collective_scale_up:31, semitone_down:7
+    pre-span preds: none:1543
+    post-span:      scale_up:1796, none:1325, scale_down:52
+    postproc fires per clip: 0x:1 1x:32 2x:7
+      DOUBLE: scale_up_both_sync_20260601_171228.npz -> ['scale_up', 'semitone_up']
+      DOUBLE: scale_up_both_sync_20260601_171303.npz -> ['collective_scale_up', 'scale_up']
+      DOUBLE: scale_up_both_sync_20260601_171419.npz -> ['scale_up', 'scale_down']
+      DOUBLE: scale_up_right_only_20260601_170128.npz -> ['scale_up', 'scale_down']
+      DOUBLE: scale_up_right_only_20260601_170150.npz -> ['scale_up', 'collective_semitone_down']
+
+  semitone_down  (40 clips)
+    in-span argmax acc = 0.96
+    in-span preds:  semitone_down:536, none:17, spawn_note:6, scale_up:1
+    pre-span preds: none:913
+    post-span:      semitone_down:1627, none:527, scale_up:80
+    postproc fires per clip: 1x:34 2x:6
+      DOUBLE: semitone_down_both_sync_20260601_173342.npz -> ['semitone_down', 'scale_up']
+      DOUBLE: semitone_down_both_sync_20260601_173401.npz -> ['semitone_down', 'collective_semitone_down']
+      DOUBLE: semitone_down_right_only_20260601_173511.npz -> ['semitone_down', 'scale_up']
+      DOUBLE: semitone_down_right_only_20260601_173522.npz -> ['semitone_down', 'scale_up']
+      DOUBLE: semitone_down_right_only_20260601_173555.npz -> ['semitone_down', 'collective_semitone_down']
+
+  semitone_up  (40 clips)
+    in-span argmax acc = 0.94
+    in-span preds:  semitone_up:774, none:23, scale_up:11, collective_semitone_down:8
+    pre-span preds: none:1137
+    post-span:      semitone_up:1599, none:286, scale_up:43
+    postproc fires per clip: 1x:32 2x:8
+      DOUBLE: semitone_up_both_sync_20260601_172941.npz -> ['semitone_up', 'scale_up']
+      DOUBLE: semitone_up_both_sync_20260601_173010.npz -> ['semitone_up', 'semitone_down']
+      DOUBLE: semitone_up_both_sync_20260601_173049.npz -> ['semitone_up', 'semitone_down']
+      DOUBLE: semitone_up_both_sync_20260601_173055.npz -> ['semitone_up', 'semitone_down']
+      DOUBLE: semitone_up_both_sync_20260601_173132.npz -> ['semitone_up', 'scale_down']
+
+  spawn_note  (40 clips)
+    in-span argmax acc = 0.91
+    in-span preds:  spawn_note:1777, none:175
+    pre-span preds: none:1368
+    post-span:      spawn_note:1692, none:848, collective_scale_down:20
+    postproc fires per clip: 0x:1 1x:35 2x:3 3x:1
+      DOUBLE: spawn_note_right_only_20260601_165556.npz -> ['spawn_note', 'collective_scale_down', 'semitone_up']
+      DOUBLE: spawn_note_right_only_20260601_165612.npz -> ['semitone_up', 'spawn_note']
+      DOUBLE: spawn_note_right_only_20260601_165706.npz -> ['spawn_note', 'scale_down']
+      DOUBLE: spawn_note_right_only_20260601_165809.npz -> ['spawn_note', 'scale_down']

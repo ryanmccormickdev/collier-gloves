@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "collier-gloves"
+version = "0.1.0"
+description = "Two sensor gloves that conduct a digital choir: ESP32-C3 + BNO085 + flex sensors over BLE, a Python gesture pipeline, and OSC to Max/MSP."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "bleak>=0.21",
+    "python-osc>=1.8",
+    "numpy>=1.24",
+    "torch>=2.0",
+    "PyQt6>=6.5",
+    "qasync>=0.27",
+]
+
+[project.optional-dependencies]
+# experiments/ml-attempt/glove_gesture_trainer.py
+ml = ["pyqtgraph"]
+
+# The Python packages live under host/. An editable install
+# (`pip install -e .`) makes them importable from tools/ and experiments/.
+[tool.setuptools]
+package-dir = { "" = "host" }
+py-modules = ["qt_env"]
+
+[tool.setuptools.packages.find]
+where = ["host"]
+
+[tool.setuptools.package-data]
+collier_live = ["models/*.json", "models/*.pt"]

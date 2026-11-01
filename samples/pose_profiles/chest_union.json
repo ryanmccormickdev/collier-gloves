@@ -1,0 +1,25 @@
+{
+  "name": "chest_union",
+  "note": "Union of two live-validated chest poses; baked into FilterPoseConfig defaults.",
+  "profiles_merged": ["chest_pose_a", "chest_pose_b"],
+  "suggested_gate": {
+    "L": {
+      "pitch": { "lo": -0.84, "hi": 43.99 },
+      "roll": { "lo": -128.35, "hi": -84.94 },
+      "gyro_mag_max": 1.15
+    },
+    "R": {
+      "pitch": { "lo": -44.31, "hi": 11.90 },
+      "roll": { "lo": -127.21, "hi": -88.92 },
+      "gyro_mag_max": 1.15
+    }
+  },
+  "source_a": {
+    "L": { "pitch": [-0.84, 35.16], "roll": [-128.35, -92.35], "gyro_mag_max": 1.08 },
+    "R": { "pitch": [-24.10, 11.90], "roll": [-127.21, -91.21], "gyro_mag_max": 1.09 }
+  },
+  "source_b": {
+    "L": { "pitch": [7.99, 43.99], "roll": [-120.94, -84.94], "gyro_mag_max": 1.09 },
+    "R": { "pitch": [-44.31, -8.31], "roll": [-124.92, -88.92], "gyro_mag_max": 1.02 }
+  }
+}

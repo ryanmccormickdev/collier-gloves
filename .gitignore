@@ -1,0 +1,28 @@
+# Private review notes for Ryan (not for the public repo)
+/NOTES.md
+/MEDIA_NEEDED.md
+
+__pycache__/
+*.pyc
+.DS_Store
+.vscode/
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+
+# Written by tools/record_filter_pose.py (repo-root artifacts/ only)
+/artifacts/
+
+# Written by the ML trainer / diagnostics in experiments/ml-attempt/
+experiments/ml-attempt/gesture_trainer_data/
+experiments/ml-attempt/artifacts/reports/live_dumps/
+experiments/ml-attempt/artifacts/reports/live_replays/
+experiments/ml-attempt/artifacts/reports/pose_profiles/
+
+# Optional saved forward headings for collier_live (see host/collier_live/calib_io.py)
+host/gesture_trainer_data/
+
+# Audio recordings
+*.wav
