@@ -5,11 +5,11 @@
 
 >>> If you are writing gestures from scratch, your blank canvas is
 >>> `gestures_scratch.py`. THIS file is the *reference*: it documents exactly
->>> how the current (messy, agent-written) detectors work, what signal each
+>>> how the current (messy) detectors work, what signal each
 >>> reads, and the data overlaps each one is fighting. Read it, steal the good
 >>> ideas, ignore the rest.
 
-WHERE EACH GESTURE IS DETECTED  (the "point me to each one" you asked for)
+WHERE EACH GESTURE IS DETECTED
 -----------------------------------------------------------------------------
 Every gesture is *detected* in code (nothing about a gesture is stored on disk;
 recorded practice clips live in collier/recordings/, and the resulting musical

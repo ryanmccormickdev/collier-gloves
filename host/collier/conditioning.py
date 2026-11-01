@@ -137,7 +137,7 @@ straight ahead, palm down, fingers forward — that's the rough zero pose.
        absolute direction is not.
 
 -----------------------------------------------------------------------------
- 6. FINGERS:  finger_bend  (this is the ONLY finger signal you asked to keep)
+ 6. FINGERS:  finger_bend  (the only finger signal that's kept)
 -----------------------------------------------------------------------------
   finger_bend = per-finger bend amount, 0.0 .. 1.0, order (thumb, index,
        middle, ring, pinky). 0.0 = finger fully EXTENDED (straight); 1.0 =
@@ -248,7 +248,7 @@ class GloveSignals:
     world_vel: tuple[float, float, float]    # linear velocity in world frame (m/s), bias-removed, self-zeroing
     vert_vel: float                   # == world_vel[2]; up/down speed (m/s) — old scale gesture used this
 
-    # -- fingers: the per-finger bend you asked to keep -- (section 6) --
+    # -- fingers: the per-finger bend, the only finger signal kept -- (section 6) --
     finger_bend: tuple[float, ...]    # 0..1 per finger (thumb,index,middle,ring,pinky); 1 = fully curled
     raw_flex: tuple[int, ...]         # the 10 untouched ADC values (0..4095), firmware channel order
     finger_raw: tuple[float, ...]     # raw ADC averaged per finger (thumb..pinky), pre-normalization

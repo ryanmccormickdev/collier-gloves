@@ -38,9 +38,9 @@ At midnight I drew out the board, with the pinouts pasted in next to it. By 3:27
 
 ### May 21: two gloves
 
-<img src="media/2026-05-21-two-gloves.jpg" width="320" alt="Two grey gloves with taped bend sensors on every finger and printed boxes at the wrists">
+<img src="media/2026-05-21-two-gloves.jpg" width="320" alt="Two grey gloves with homemade bend sensors on every finger and 3D-printed boxes at the wrists">
 
-Two gloves, ten bend sensors each (two per finger), electronics in printed boxes on the wrists.
+Two gloves, ten bend sensors each (two per finger), electronics in 3D-printed boxes on the wrists. The bend sensors are homemade: velostat, copper tape and foam, put together on a sewing machine.
 
 ### May 24-27: everything except a choir
 
@@ -118,7 +118,9 @@ A timbre gesture, four 60° pointing regions (one per choir section), a held "ch
 
 I calibrated my forward heading, played a single note, and nothing came out. My Max patch wasn't enabled. Then the audio was going to my Bluetooth headphones, and "one of the downsides of doing things with Bluetooth" is that turning Bluetooth off to fix that also disconnects both gloves, so I had to calibrate again. Then the effects part of the Max patch stopped working, "which is strange because I didn't change anything." Someone suggested deleting it and hitting undo, but I'd just restarted my computer.
 
-So I did the basic demo, notes only. That's the [video at the top](media/2026-06-02-demo-highlight.mp4). We recorded a proper take afterwards, and I don't have a copy of it yet.
+So I did the basic demo, notes only. That's the [video at the top](media/2026-06-02-demo-highlight.mp4).
+
+Afterwards I found out why the effects died. One of the raw numbers I'd typed into the pad for the dry/wet mixer was set to 0. I could have fixed that on stage in seconds, but I was stressed, and I still don't know how it got changed. We recorded a proper take afterwards with the effects working, and I don't have a copy of it yet.
 
 <img src="media/2026-06-02-2110-after.jpg" width="420" alt="Film-look photo of the empty stage afterwards: keyboard, laptops and stands in purple light">
 
@@ -156,7 +158,7 @@ Max patch (host/max/conductor.maxpat) -> MIDI ch 1-4 -> Kontakt 8 choir -> effec
 
 - **ESP32-C3 SuperMini**, advertising over BLE (NimBLE) as `Glove-L` or `Glove-R`.
 - **BNO085 IMU** on the back of the hand, on I2C. The firmware uses its magnetometer-free game rotation vector for orientation, plus linear acceleration (gravity removed) and the calibrated gyro. The board sits upside down, so the host applies a fixed 180° mount correction.
-- **Ten bend sensor channels**, two per finger (proximal and distal pads), each in a voltage divider. Eight go through a **CD74HC4051** analog mux into one ADC pin and two use direct ADC pins.
+- **Ten homemade bend sensors** (velostat, copper tape and foam), two per finger (proximal and distal pads), each in a voltage divider. Eight go through a **CD74HC4051** analog mux into one ADC pin and two use direct ADC pins.
 - A small LiPo and a slide switch.
 
 Pins, the packet layout and flashing steps are in [`firmware/README.md`](firmware/README.md).
@@ -252,7 +254,11 @@ To test the Max side without gloves, `python tools/manual_osc_gui.py` sends the 
 
 ## Credits
 
-- Sasha, for the open/closed-hand calibration idea on May 26.
+- Sasha Leitman, who taught 250A, for the open/closed-hand calibration idea on May 26.
 - The sound is the Jacob Collier Audience Choir library (Native Instruments, for Kontakt). It isn't included here.
 - Built with bleak, python-osc, PyTorch, PyQt6, qasync and NumPy on the laptop, Adafruit's BNO08x library and NimBLE-Arduino on the gloves, and Max for the sound.
 - Malcolm, for being awake at 6:30 am too.
+
+## License
+
+MIT ([`LICENSE`](LICENSE)).
